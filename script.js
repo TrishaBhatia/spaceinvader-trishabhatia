@@ -43,7 +43,7 @@ var keys =[];
 
 // ################################################################### score and lives
 var score = 0;
-var allowedLives = 3;
+var allowedLives = 5;
 var lives = allowedLives;
 var hasLifeDecreased = false;
 var gameRunning = false;
