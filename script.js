@@ -2,12 +2,7 @@ let canvas = document.getElementById('myCanvas');
   /** @type {CanvasRenderingContext2D}  */
 let ctx = canvas.getContext("2d");
 
-// //media queries
-// if (window.matchMedia("(max-width: 600px)").matches) { // If media query matches
-//     canvas.width = 320;
-//     canvas.height = 480;
-//   } 
-// //media queries
+
 
 
 //globals
@@ -18,14 +13,14 @@ let ctx = canvas.getContext("2d");
 })();
 var animationID;
 
-// ################################################################### load sprites
+
 let spriteBase64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAEACAYAAAADRnAGAAACGUlEQVR42u3aSQ7CMBAEQIsn8P+/hiviAAK8zFIt5QbELiTHmfEYE3L9mZE9AAAAqAVwBQ8AAAD6THY5CgAAAKbfbPX3AQAAYBEEAADAuZrC6UUyfMEEAIBiAN8OePXnAQAAsLcmmKFPAQAAgHMbm+gbr3Sdo/LtcAAAANR6GywPAgBAM4D2JXAAABoBzBjA7AmlOx8AAEAzAOcDAADovTc4vQim6wUCABAYQG8QAADd4dPd2fRVYQAAANQG0B4HAABAawDnAwAA6AXgfAAAALpA2uMAAABwPgAAgPoAM9Ci/R4AAAD2dmqcEQIAIC/AiQGuAAYAAECcRS/a/cJXkUf2AAAAoBaA3iAAALrD+gIAAADY9baX/nwAAADNADwFAADo9YK0e5FMX/UFACA5QPSNEAAAAHKtCekmDAAAAADvBljtfgAAAGgMMGOrunvCy2uCAAAACFU6BwAAwF6AGQPa/XsAAADYB+B8AAAAtU+ItD4OAwAAAFVhAACaA0T7B44/BQAAANALwGMQAAAAADYO8If2+P31AgAAQN0SWbhFDwCAZlXgaO1xAAAA1FngnA8AACAeQPSNEAAAAM4CnC64AAAA4GzN4N9NSfgKEAAAAACszO26X8/X6BYAAAD0Anid8KcLAAAAAAAAAJBnwNEvAAAA9Jns1ygAAAAAAAAAAAAAAAAAAABAQ4COCENERERERERERBrnAa1sJuUVr3rsAAAAAElFTkSuQmCC";
 const tank = new Image();
 tank.src = spriteBase64;
 const invader = new Image();
 invader.src = spriteBase64;
 var startScreenTimeout;
-// ################################################################### tank and sprite
+//  tank and sprite
 
 var frameCount=0;
 var armyPrevFrameCount=0;
@@ -41,13 +36,13 @@ var tankWidth= spriteUnitWidth/2;
 var tankHeight =spritUnitHeight/2
 var keys =[];
 
-// ################################################################### score and lives
+//  score and lives
 var score = 0;
 var allowedLives = 5;
 var lives = allowedLives;
 var hasLifeDecreased = false;
 var gameRunning = false;
-// ################################################################### Invaders rows columns
+//  Invaders rows columns
 var invaderWidth = spriteUnitWidth/2.5;
 var invaderHeight = spritUnitHeight/2.5;
 var invaderSpriteHeight = spritUnitHeight;
@@ -67,7 +62,7 @@ var armySpeed__decrement = 10;
 let aliveInvaders = armyColumns* armyRows;
 var armyInvaderBulletsSpeed = 4;
 var armyArray = [];
-// ################################################################### bullet
+//  bullet
 var bullet__height = 10;
 var bullet__width = 3;
 var tankBullet__x;
@@ -79,7 +74,7 @@ var invaderBulletsArray = [];
 var invBullet_dy = 5;
 var invBullet__prevFrameCount=0;
 
-// ################################################################### explosion variables
+//  explosion variables
 // Options
 const background            = '#FFF';                    
 var particlesPerExplosion   = 50;
@@ -100,9 +95,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
   fps = 29;
 }
 
-// ##################################################################
-
-// ################################################################### main game loop
+// main game loop
 window.addEventListener('load', function() {
   drawStartScreen();  
 })
@@ -173,15 +166,7 @@ function gameLoop(){
   //explosion
 
 }
-// ###################################################################
-
-
-
-
-
-
-
-// ################################################################### event listeners
+// event listeners
 window.addEventListener("keydown", ()=>keys[event.keyCode] = true);
 window.addEventListener("keyup", ()=>keys[event.keyCode] = false);
 window.addEventListener("keypress", keypressedHandler);
@@ -206,10 +191,7 @@ function keypressedHandler(){
   }
 }
 
-// ###################################################################
-
-
-// ################################################################### handlers
+//handlers
 function invadersBulletHandler(){
   if(invaderBulletsArray.length<3 &&  frameCount- invBullet__prevFrameCount>(armySpeed*armyInvaderBulletsSpeed)){
     generateInvaderRandomBullet();
@@ -294,7 +276,7 @@ function helperHandler(){
 
 }
 
-// ################################################################### draw functions
+
 function drawInvader(x,y,sHeight){
   ctx.beginPath();
   ctx.drawImage(// Image
@@ -558,9 +540,6 @@ function drawScreen__line2(message){
     ctx.restore();
 }
 
-// ###################################################################
-
-// ################################################################### Explosion functions
 
 // Draw explosion(s)
 function drawExplosion() {
@@ -673,12 +652,5 @@ function randInt(min, max, positive) {
 
 }
 
-// // On-click
-// document.addEventListener('click',(e)=>{
-//   triggerExplosion(e);
-// });
-
-
-// ################################################################### Explosion functions
 
 
